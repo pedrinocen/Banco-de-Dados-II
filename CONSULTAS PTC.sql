@@ -1,4 +1,4 @@
-﻿CREATE DATABASE bdPartidoPTC
+CREATE DATABASE bdPartidoPTC
 
 
 USE bdPartidoPTC
@@ -61,3 +61,45 @@ SELECT MAX(zonaEleitoral) FROM filiadosPTC
 SELECT MIN(zonaEleitoral) FROM filiadosPTC
 
 --19)	Atualize a sigla do partido PTC para PT para todos os filiados do município de código “36471”.
+UPDATE filiadosPTC SET siglaPartido = 'PT' WHERE (codigoMunicipio) = 36471
+--SELECT siglaPartido, codigoMunicipio FROM filiadosPTC WHERE (codigoMunicipio) = 36471
+
+--20)	Atualize a sigla do partido PTC para PMDB para todos os filiados do município de código “38490”.
+UPDATE filiadosPTC SET siglaPartido = 'PMDB' WHERE (codigoMunicipio) = 38490
+--SELECT siglaPartido, codigoMunicipio FROM filiadosPTC WHERE (codigoMunicipio) = 38490
+
+--21)	Atualize a sigla do partido PTC para PC para todos os filiados do município de “SANTANÓPOLIS”.
+UPDATE filiadosPTC SET siglaPartido = 'PC' WHERE nomeMunicipio LIKE 'SAN%POLIS'
+--SELECT siglaPartido, nomeMunicipio FROM filiadosPTC WHERE nomeMunicipio LIKE 'SAN%POLIS'
+
+--22)	Atualizar a sigla do partido PTC para PV e nome do Partido trabalhista Cristão para Partido Verde dos Filiados do município de “São Félix”.
+UPDATE filiadosPTC SET siglaPartido = 'PV', nomePartido = 'PARTIDO VERDE' WHERE nomeMunicipio LIKE 'S%LIX'
+--SELECT siglaPartido, nomePartido, nomeMunicipio FROM filiadosPTC WHERE nomeMunicipio LIKE 'S%LIX'
+
+-- 23)	  Atualizar a sigla do partido PTC para PSDB e nome do Partido Trabalhista Cristão para Partido da Social Democracia Brasileira de todos os filiados do município de “ENCRUZILHADA”.
+UPDATE filiadosPTC SET siglaPartido = 'PSDB', nomePartido = 'PARTIDO SOCIAL DEMOCRACIA BRASILEIRA' WHERE nomeMunicipio LIKE 'ENCRUZILHADA'
+--SELECT siglaPartido, nomePartido, nomeMunicipio FROM filiadosPTC WHERE nomeMunicipio LIKE 'ENCRUZILHADA'
+
+--24)	Atualize o nome do filiado: “JORGE LUIS FERREIRA DOS SANTOS” para “JORGE LUIS MAGALHÃES DOS SANTOS
+UPDATE filiadosPTC SET nomeFiliado = 'JORGE LUIS MAGALHÃES DOS SANTOS' WHERE nomeFiliado LIKE 'JORGE LUIS FERREIRA DOS SANTOS'
+
+--25)	Atualize o nome da filiada: “BENTA XAVIER RODRIGUES” para “RENATA XAVIER RODRIGUES.
+UPDATE filiadosPTC SET nomeFiliado = 'RENATA XAVIER RODRIGUES' WHERE nomeFiliado LIKE 'BENTA XAVIER RODRIGUES'
+
+--26)	Atualize o nome do filiado: “NOE LEITE DA SILVA” para “NOEL LEITE DA SILVA”
+UPDATE filiadosPTC SET nomeFiliado = 'NOEL LEITE DA SILVA' WHERE nomeFiliado LIKE 'NOE LEITE DA SILVA'
+
+--27)	Mude a situação do registro de JOSIENE ANDRADE DE SOUZA mude de JUB_JUDICE para REGULAR.
+UPDATE filiadosPTC SET situacaoRegistro = 'REGULAR' WHERE nomeFiliado LIKE 'JOSIENE ANDRADE DE SOUZA'
+--SELECT nomeFiliado, situacaoRegistro FROM filiadosPTC WHERE nomeFiliado LIKE 'JOSIENE ANDRADE DE SOUZA'
+
+--28)	Mude a situação do registro de ELIEL ALMEIDA SILVA, mude de DESFILIADO para REGULAR.
+UPDATE filiadosPTC SET situacaoRegistro = 'REGULAR' WHERE nomeFiliado LIKE 'ELIEL ALMEIDA SILVA'
+--SELECT nomeFiliado, situacaoRegistro FROM filiadosPTC WHERE nomeFiliado LIKE 'ELIEL ALMEIDA SILVA'
+
+--29)	Mude a situação do registro de ALINE DE SOUZA, mude de REGULAR para DESFILIADO.
+UPDATE filiadosPTC SET situacaoRegistro = 'DESFILIADO' WHERE nomeFiliado LIKE 'ALINE DE SOUZA'
+--SELECT nomeFiliado, situacaoRegistro FROM filiadosPTC WHERE nomeFiliado LIKE 'ALINE DE SOUZA'
+
+--30)	Adicione à tabela o campo Sexo (com tipo char).
+ALTER TABLE filiadosPTC ADD sexo CHAR
